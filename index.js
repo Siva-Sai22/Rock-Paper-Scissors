@@ -6,6 +6,7 @@ function getComputerChoice(){
 }
 
 function playRound(playerSelection, computerSelection){
+    playerSelection=playerSelection.trim();
     playerSelection=playerSelection.toLowerCase();
     if(playerSelection===computerSelection){
         return "Its a draw!";
@@ -30,7 +31,7 @@ function game(){
     let getGoing=true;
 
     while(getGoing){
-        const playerSelection = "Scissor";
+        const playerSelection = prompt("Enter your choice.");
         const computerSelection=getComputerChoice();
         let result=playRound(playerSelection, computerSelection);
         console.log(result);
