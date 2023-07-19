@@ -24,7 +24,31 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-const playerSelection = "Scissor";
-const computerSelection=getComputerChoice();
+function game(){
+    let playerCounter=0;
+    let computerCounter=0;
+    let getGoing=true;
 
-console.log(playRound(playerSelection,computerSelection));
+    while(getGoing){
+        const playerSelection = "Scissor";
+        const computerSelection=getComputerChoice();
+        let result=playRound(playerSelection, computerSelection);
+        console.log(result);
+        result=result.slice(0,7);
+
+        if(result==="You Won"){
+            playerCounter++;
+        }else if(result==="You Los"){
+            computerCounter++;
+        }
+        console.log(playerCounter,computerCounter);
+        if(playerCounter===5 || computerCounter===5){
+            getGoing=false;
+        }
+    }
+
+    if(playerCounter===5) console.log("Congrats! You Won the game");
+    else console.log("You Lost the game!");
+}
+
+game();
