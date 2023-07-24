@@ -1,0 +1,44 @@
+body {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(51, 47, 47);
+}
+
+.header {
+    color: rgb(207, 219, 221);
+    font-size: 32px;
+    text-align: center;
+    padding: 16px;
+    margin-bottom: 32px;
+}
+
+.box {
+    align-self: center;
+    background-color: white;
+    width: 70vw;
+    height: 80vh;
+    border-radius: 20px;
+}
+
+.buttons {
+    margin-top: 32px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.play {
+    background-color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+img {
+    display: block;
+    width: 200px;
+    margin-bottom: 8px;
+    background-color: white;
+}
