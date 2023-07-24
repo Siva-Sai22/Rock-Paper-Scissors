@@ -25,31 +25,48 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-function game(){
-    let playerCounter=0;
-    let computerCounter=0;
-    let getGoing=true;
+let playerCounter=0;
+let computerCounter=0;
 
-    while(getGoing){
-        const playerSelection = prompt("Enter your choice.");
-        const computerSelection=getComputerChoice();
-        let result=playRound(playerSelection, computerSelection);
-        console.log(result);
-        result=result.slice(0,7);
+const result_div = document.querySelector('.result');
+const final_result = document.querySelector('.final-result');
+const scorecard = document.querySelector('.scorecard');
+const play_again = document.querySelector('.play-again')
 
-        if(result==="You Won"){
-            playerCounter++;
-        }else if(result==="You Los"){
-            computerCounter++;
-        }
-        console.log(playerCounter,computerCounter);
-        if(playerCounter===5 || computerCounter===5){
-            getGoing=false;
-        }
+function updateScorecard(result){
+    if(result.slice(0,7)==="You Won"){
+        playerCounter++;
+    }else if(result.slice(0,7)==="You Los"){
+        computerCounter++;
     }
-
-    if(playerCounter===5) console.log("Congrats! You Won the game");
-    else console.log("You Lost the game!");
+    scorecard.textContent = `${playerCounter} ${computerCounter}`;
+    if(playerCounter === 5){
+        final_result.textContent = 'Congrats! You Won the game';
+    }else if(computerCounter === 5){
+        final_result.textContent = 'You Lost the game!';
+    }
 }
 
-game();
+function afterClick(playerSelection){
+    if(playerCounter === 5 || computerCounter === 5){
+        return;
+    }
+    result = playRound(playerSelection,getComputerChoice());
+    result_div.textContent = result;
+    updateScorecard(result);
+}
+
+function resetCounter(){
+    playerCounter = 0;
+    computerCounter = 0;
+    scorecard.textContent = `${playerCounter} ${computerCounter}`;
+    result_div.textContent = '';
+    final_result.textContent = '';
+}
+
+const buttons = document.querySelectorAll('.play');
+buttons.forEach(button => {
+    button.addEventListener('click',() => afterClick(button.textContent));
+});
+
+play_again.addEventListener('click', () => resetCounter());
