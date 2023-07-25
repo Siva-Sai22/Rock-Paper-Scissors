@@ -39,7 +39,7 @@ function updateScorecard(result){
     }else if(result.slice(0,7)==="You Los"){
         computerCounter++;
     }
-    scorecard.textContent = `${playerCounter} ${computerCounter}`;
+    scorecard.textContent = `${playerCounter} - ${computerCounter}`;
     if(playerCounter === 5){
         final_result.textContent = 'Congrats! You Won the game';
     }else if(computerCounter === 5){
@@ -59,9 +59,9 @@ function afterClick(playerSelection){
 function resetCounter(){
     playerCounter = 0;
     computerCounter = 0;
-    scorecard.textContent = `${playerCounter} ${computerCounter}`;
-    result_div.textContent = '';
-    final_result.textContent = '';
+    scorecard.textContent = `${playerCounter} - ${computerCounter}`;
+    result_div.textContent = 'Click on the buttons to play!';
+    final_result.textContent = 'The battle is going on.';
 }
 
 const buttons = document.querySelectorAll('.play');
