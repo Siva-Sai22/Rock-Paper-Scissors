@@ -1,4 +1,5 @@
 body {
+    height: 100vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -17,6 +18,8 @@ body {
 
 .box {
     align-self: center;
+    display: flex;
+    flex-direction: column;
     background-color: white;
     width: 90vw;
     height: 80vh;
@@ -45,8 +48,27 @@ img {
     background-color: white;
 }
 
-.result,.scorecard,.final-result {
+.scorecard-info {
+    margin-left: 30px;
+}
+
+.result,.scorecard,.final-result,.scorecard-info {
     margin-top: 8px;
     text-align: center;
+    font-size: 24px;
+}
+
+.play-again {
+    margin-top: 16px;
+    max-width: 150px;
+    padding: 8px;
+    font-size: 16px;
+    align-self: center;
+}
+
+.footer {
+    margin: 32px;
+    text-align: right;
+    color: rgb(207, 219, 221);
     font-size: 24px;
 }
